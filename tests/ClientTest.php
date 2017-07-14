@@ -66,6 +66,18 @@
             $this->assertEquals($new_id, $result);
         }
 
+        function testGetId()
+        {
+          $name = "Mars";
+          $stylist_match_id = 19;
+          $id = 40;
+          $test_client = new Client($name, $stylist_match_id, $id);
+
+          $result = $test_client->getId();
+
+          $this->assertEquals($id, $result);
+        }
+
         function testSave()
         {
             $name = "Talos";
@@ -110,5 +122,7 @@
 
             $this->assertEquals([], $result);
         }
+
+
     }
 ?>
