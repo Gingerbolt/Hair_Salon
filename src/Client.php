@@ -5,7 +5,7 @@
         private $stylist_match_id;
         private $id;
 
-        function __contstruct($name, $id = null)
+        function __construct($name, $stylist_match_id, $id = null)
         {
             $this->name = $name;
             $this->id = $id;
@@ -30,6 +30,11 @@
         function setStylistMatchId($stylist_match_id)
         {
             $this->stylist_match_id = $stylist_match_id;
+        }
+
+        function getId()
+        {
+            return $this->id;
         }
 
         function save()
