@@ -4,9 +4,9 @@
         private $name;
         private $id;
 
-        function __contstruct($name, $id = null)
+        function __construct($name, $id = null)
         {
-            $this->name = (string) $name;
+            $this->name = $name;
             $this->id = $id;
         }
 
@@ -15,39 +15,39 @@
             return $this->name;
         }
 
-        function setName($new_name)
-        {
-            $this->name = (string) $new_name;
-        }
-
-        function save()
-        {
-
-        }
-
-        function getAll()
-        {
-
-        }
-
-        function deleteAll()
-        {
-
-        }
-
-        function find()
-        {
-
-        }
-
-        function update()
-        {
-
-        }
-
-        function delete()
-        {
-
-        }
+        // function setName($new_name)
+        // {
+        //     $this->name = (string) $new_name;
+        // }
+        //
+        // function save()
+        // {
+        //
+        // }
+        //
+        // function getAll()
+        // {
+        //
+        // }
+        //
+        // function deleteAll()
+        // {
+        //
+        // }
+        //
+        // function find()
+        // {
+        //
+        // }
+        //
+        // function update()
+        // {
+        //
+        // }
+        //
+        // function delete()
+        // {
+        //
+        // }
     }
 ?>
