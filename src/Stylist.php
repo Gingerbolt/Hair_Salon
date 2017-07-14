@@ -20,6 +20,11 @@
             $this->name = $new_name;
         }
 
+        function getId()
+        {
+            return $this->id;
+        }
+
         function save()
         {
             $executed = $GLOBALS['DB']->exec("INSERT INTO stylists (name) VALUES ('{$this->getName()}');");

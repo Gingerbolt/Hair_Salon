@@ -79,6 +79,18 @@
 
             $this->assertEquals([], $result);
         }
+
+        function testGetId()
+        {
+          $name = "Marcia";
+          $id = 40;
+          $test_stylist = new Stylist($name, $id);
+
+          $result = $test_stylist->getId();
+
+          $this->assertEquals($id, $result);
+        }
+
     }
 
 ?>
