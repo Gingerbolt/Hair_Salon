@@ -139,6 +139,36 @@
             $this->assertEquals($test_client, $result);
         }
 
+        function testUpdateName()
+        {
+            $name = "Istambul";
+            $stylist_match_id = 26;
+            $test_client = new Client($name, $stylist_match_id);
+            $name_2 = "Constantinople";
+            $test_client->save();
+
+            $test_client->updateName($name_2);
+
+            $this->assertEquals($name_2, $test_client->getName());
+        }
+
+        function testDelete()
+        {
+
+            $name = "Greta";
+            $stylist_match_id = 31;
+            $test_client = new Client($name, $stylist_match_id);
+            $test_client->save();
+            $name_2 = "Hanz";
+            $stylist_match_id_2 = 32;
+            $test_client_2 = new Client($name_2, $stylist_match_id_2);
+            $test_client_2->save();
+
+            $test_client->delete();
+
+            $this->assertEquals([$test_client_2], Client::getAll());
+        }
+
 
     }
 ?>

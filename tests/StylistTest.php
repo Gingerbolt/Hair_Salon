@@ -40,6 +40,17 @@
             $this->assertEquals($new_name, $result);
         }
 
+        function testGetId()
+        {
+          $name = "Marcia";
+          $id = 40;
+          $test_stylist = new Stylist($name, $id);
+
+          $result = $test_stylist->getId();
+
+          $this->assertEquals($id, $result);
+        }
+
         function testSave()
         {
             $name = "George";
@@ -80,17 +91,6 @@
             $this->assertEquals([], $result);
         }
 
-        function testGetId()
-        {
-          $name = "Marcia";
-          $id = 40;
-          $test_stylist = new Stylist($name, $id);
-
-          $result = $test_stylist->getId();
-
-          $this->assertEquals($id, $result);
-        }
-
         function testFind()
         {
             $name = "Stella";
@@ -105,14 +105,14 @@
             $this->assertEquals($test_stylist, $result);
         }
 
-        function testUpdate()
+        function testUpdateName()
         {
             $name = "Cassie";
             $test_stylist = new Stylist($name);
             $name_2 = "Castellan";
             $test_stylist->save();
 
-            $test_stylist->update($name_2);
+            $test_stylist->updateName($name_2);
 
             $this->assertEquals($name_2, $test_stylist->getName());
         }

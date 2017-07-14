@@ -84,14 +84,30 @@
             return $found_client;
         }
 
-        function update()
+        function updateName($new_name)
+        {
+            $executed = $GLOBALS['DB']->exec("UPDATE clients SET name = '{$new_name}' WHERE id = {$this->getId()};");
+            if ($executed) {
+               $this->setName($new_name);
+               return true;
+            } else {
+               return false;
+            }
+        }
+
+        function updateStylistId()
         {
 
         }
 
         function delete()
         {
-
+            $executed = $GLOBALS['DB']->exec("DELETE FROM clients WHERE id = {$this->getId()};");
+             if (!$executed) {
+                 return false;
+             } else {
+                 return true;
+             }
         }
     }
 ?>
