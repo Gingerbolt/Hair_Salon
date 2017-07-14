@@ -152,6 +152,19 @@
             $this->assertEquals($name_2, $test_client->getName());
         }
 
+        function testUpdateStylistMatchId()
+        {
+            $name = "Istambul";
+            $stylist_match_id = 36;
+            $test_client = new Client($name, $stylist_match_id);
+            $stylist_match_id_2 = 40;
+            $test_client->save();
+
+            $test_client->updateStylistId($stylist_match_id_2);
+
+            $this->assertEquals($stylist_match_id_2, $test_client->getStylistMatchId());
+        }
+
         function testDelete()
         {
 

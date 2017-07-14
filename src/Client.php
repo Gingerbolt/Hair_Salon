@@ -95,9 +95,15 @@
             }
         }
 
-        function updateStylistId()
+        function updateStylistId($new_stylist_id)
         {
-
+            $executed = $GLOBALS['DB']->exec("UPDATE clients SET stylist_match_id = '{$new_stylist_id}' WHERE id = {$this->getId()};");
+            if ($executed) {
+               $this->setStylistMatchId($new_stylist_id);
+               return true;
+            } else {
+               return false;
+            }
         }
 
         function delete()
