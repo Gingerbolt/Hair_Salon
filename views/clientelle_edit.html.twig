@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>Stylest Client Database</title>
+    </head>
+    <body>
+      <h1>Edit successfully made to {{ stylist.getName }}'s client list!</h1>
+      {% if client is not empty %}
+        <h2> {{ client.getName }} updated successfully! </h2>
+      {% else %}
+        <h2> Client removed from database! </h2>
+      {% endif %}
+      <p><a href='/'>Home</a></p>
+    </body>
+</html>

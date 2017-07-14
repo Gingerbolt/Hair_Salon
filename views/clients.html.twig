@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Stylest Client Database</title>
+    </head>
+    <body>
+        <h1>{{ stylist.getName }}</h1>
+
+        {% if clients is not empty %}
+            <p>Here is this stylist's clientelle:</p>
+            <ul>
+                {% for client in clients %}
+                    <li>{{ client.getName }}</li>
+                    <form name="client_update{{ client.getID }}" action= '/stylist/{{ stylist.getId }}/edit' method='post'>
+                        <input id="client_id" name="client_id" type="hidden" value="{{ client.getId() }}">
+                        <label for='name_edit'>Client Name Edit: </label>
+                        <input id='name_edit' name='name_edit' type='text'>
+                        <button name="client_update{{ client.getID }}" type='submit'>Edit client</button>
+                    </form>
+                    <form name="client_delete{{ client.getID }}" action='/stylist/{{ stylist.getId }}/delete' method='post'>
+                        <input id="client_id" name="client_id" type="hidden" value="{{ client.getId() }}">
+                        <button name="client_delete{{ client.getID }}" type='submit'>Delete Client</button>
+                    </form>
+                {% endfor %}
+            </ul>
+        {% else %}
+        <p><em>No clientelle found, please enter your stylist' clients below</em></p>
+        {% endif %}
+
+        <h4>Add a client</h4>
+
+        <form name="client_name_input" action='/stylist/{{ stylist.getId }}' method='post'>
+            <input id="stylist_id" name="stylist_id" type="hidden" value="{{ stylist.getId() }}">
+            <label for='name'>Client Name: </label>
+            <input id='name' name='name' type='text'>
+
+            <button name="client_name_input" type='submit'>Add client</button>
+        </form>
+        <p><a href='/'>Home</a></p>
+    </body>
+</html>

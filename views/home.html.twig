@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Stylest Client Database</title>
+    </head>
+    <body>
+        <h1>Welcome to Stylest salon client database</h1>
+
+        {% if stylists is not empty %}
+            <p>Here are all your current employees:</p>
+            <ul>
+                {% for stylist in stylists %}
+                    <li><a href="/stylist/{{ stylist.getId }}">{{ stylist.getName }}</a></li>
+                    <form name="stylist_delete{{ stylist.getId }}" action='/{{ stylist.getId }}/delete' method='post'>
+                        <button name="stylist_delete{{ stylist.getId }}" type='submit'>Fire Stylist</button>
+                    </form>
+                {% endfor %}
+            </ul>
+        {% else %}
+          <p>Add your employees!</p>
+        {% endif %}
+
+        <p>Create a new stylist to store clients under:</p>
+
+        <form name="stylist_post" action="/" method="post">
+            <label for="name">Stylist name:</label>
+            <input id="name" name="name" type="text" required>
+
+            <button name="stylist_post" type="submit">Add stylist</button>
+        </form>
+
+    </body>
+</html>
