@@ -41,5 +41,39 @@
 
             $this->assertEquals($new_name, $result);
         }
+
+        function testGetStylistMatchId()
+        {
+            $name = "Lorell";
+            $stylist_match_id = 7;
+            $test_client = new Client($name, $stylist_match_id);
+
+            $result = $test_client->getStylistMatchId();
+
+            $this->assertEquals($stylist_match_id, $result);
+        }
+
+        function testSetStylistMatchId()
+        {
+            $name = "Terrence";
+            $stylist_match_id = 8;
+            $test_client = new Client($name, $stylist_match_id);
+            $new_id = 9;
+
+            $test_client->setStylistMatchId($new_id);
+            $result = $test_client->getStylistMatchId();
+
+            $this->assertEquals($new_id, $result);
+        }
+        //
+        // function testSave()
+        // {
+        //     $name = "George";
+        //     $test_stylist = new Stylist($name);
+        //
+        //     $executed = $test_stylist->save();
+        //
+        //     $this->assertTrue($executed, "Stylist not successfully saved to database");
+        // }
     }
 ?>

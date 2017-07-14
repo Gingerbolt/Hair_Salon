@@ -39,7 +39,13 @@
 
         function save()
         {
-
+            $executed = $GLOBALS['DB']->exec("INSERT INTO clients (name, stylist_match_id) VALUES ('{$this->getName()}');");
+            if ($executed) {
+               $this->id= $GLOBALS['DB']->lastInsertId();
+               return true;
+            } else {
+               return false;
+            }
         }
 
         function getAll()
