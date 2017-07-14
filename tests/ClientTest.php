@@ -28,5 +28,18 @@
 
             $this->assertEquals($name, $result);
         }
+
+        function testSetName()
+        {
+            $name = "Josefina";
+            $stylist_match_id = 3;
+            $test_client = new Client($name, $stylist_match_id);
+            $new_name = "Alex";
+
+            $test_client->setName($new_name);
+            $result = $test_client->getName();
+
+            $this->assertEquals($new_name, $result);
+        }
     }
 ?>
