@@ -65,15 +65,16 @@
 
             $this->assertEquals($new_id, $result);
         }
-        //
-        // function testSave()
-        // {
-        //     $name = "George";
-        //     $test_stylist = new Stylist($name);
-        //
-        //     $executed = $test_stylist->save();
-        //
-        //     $this->assertTrue($executed, "Stylist not successfully saved to database");
-        // }
+
+        function testSave()
+        {
+            $name = "Talos";
+            $stylist_match_id = 18;
+            $test_client = new Client($name, $stylist_match_id);
+
+            $executed = $test_client->save();
+
+            $this->assertTrue($executed, "Client not successfully saved to database");
+        }
     }
 ?>
