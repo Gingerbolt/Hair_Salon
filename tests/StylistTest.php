@@ -14,6 +14,10 @@
 
     class StylistTest extends PHPUnit_Framework_TestCase
     {
+        protected function tearDown()
+        {
+            Stylist::deleteAll();
+        }
         function testGetName()
         {
             $name = "Jeanine";
@@ -43,7 +47,7 @@
 
             $executed = $test_stylist->save();
 
-            $this->assertTrue($executed, "Cuisine not successfully saved to database");
+            $this->assertTrue($executed, "Stylist not successfully saved to database");
         }
 
         function testGetAll()
@@ -58,6 +62,22 @@
             $result = Stylist::getAll();
 
             $this->assertEquals([$test_stylist, $test_stylist_2], $result);
+        }
+
+        function testDeleteAll()
+        {
+
+            $name = "Frank";
+            $name_2 = "Shauna";
+            $test_stylist = new Stylist($name);
+            $test_stylist->save();
+            $test_stylist_2 = new Stylist($name_2);
+            $test_stylist_2->save();
+
+            Stylist::deleteAll();
+            $result = Stylist::getAll();
+
+            $this->assertEquals([], $result);
         }
     }
 
