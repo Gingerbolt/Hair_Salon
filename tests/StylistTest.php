@@ -45,6 +45,20 @@
 
             $this->assertTrue($executed, "Cuisine not successfully saved to database");
         }
+
+        function testGetAll()
+        {
+            $name = "Jessica";
+            $name_2 = "Robert";
+            $test_stylist = new Stylist($name);
+            $test_stylist->save();
+            $test_stylist_2 = new Stylist($name_2);
+            $test_stylist_2->save();
+
+            $result = Stylist::getAll();
+
+            $this->assertEquals([$test_stylist, $test_stylist_2], $result);
+        }
     }
 
 ?>
