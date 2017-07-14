@@ -91,6 +91,20 @@
           $this->assertEquals($id, $result);
         }
 
+        function testFind()
+        {
+            $name = "Stella";
+            $name2 = "Franco";
+            $test_stylist = new Stylist($name);
+            $test_stylist->save();
+            $test_stylist_2 = new Stylist($name2);
+            $test_stylist_2->save();
+
+            $result = Stylist::find($test_stylist->getId());
+
+            $this->assertEquals($test_stylist, $result);
+        }
+
     }
 
 ?>
