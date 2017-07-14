@@ -5,7 +5,7 @@
     */
 
     require_once "src/Stylist.php";
-    // require_once "src/Client.php";
+    require_once "src/Client.php";
 
     $server = 'mysql:host=localhost:8889;dbname=hair_salon_test';
     $username = 'root';
@@ -42,13 +42,13 @@
 
         function testGetId()
         {
-          $name = "Marcia";
-          $id = 40;
-          $test_stylist = new Stylist($name, $id);
+            $name = "Marcia";
+            $id = 40;
+            $test_stylist = new Stylist($name, $id);
 
-          $result = $test_stylist->getId();
+            $result = $test_stylist->getId();
 
-          $this->assertEquals($id, $result);
+            $this->assertEquals($id, $result);
         }
 
         function testSave()
@@ -130,6 +130,25 @@
             $test_stylist->delete();
 
             $this->assertEquals([$test_stylist_2], Stylist::getAll());
+        }
+
+        function testGetClients()
+        {
+
+            $name = "Shanara";
+            $test_stylist = new Stylist($name);
+            $test_stylist->save();
+            $test_stylist_id = $test_stylist->getId();
+            $name_2 = "Talana";
+            $test_client = new Client($name_2, $test_stylist_id);
+            $test_client->save();
+            $name_3 = "Einstein";
+            $test_client_2 = new Client($name_3, $test_stylist_id);
+            $test_client_2->save();
+
+            $result = $test_stylist->getClients();
+
+            $this->assertEquals([$test_client, $test_client_2], $result);
         }
 
     }
