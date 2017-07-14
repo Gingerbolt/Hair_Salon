@@ -70,9 +70,15 @@
             return $found_stylist;
         }
 
-        function update()
+        function update($new_name)
         {
-
+            $executed = $GLOBALS['DB']->exec("UPDATE stylists SET name = '{$new_name}' WHERE id = {$this->getId()};");
+            if ($executed) {
+               $this->setName($new_name);
+               return true;
+            } else {
+               return false;
+            }
         }
 
         function delete()
