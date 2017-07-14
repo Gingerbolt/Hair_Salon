@@ -48,14 +48,23 @@
             }
         }
 
-        function getAll()
+        static function getAll()
         {
-
+            $returned_clients = $GLOBALS['DB']->query("SELECT * FROM clients;");
+            $clients = array();
+            foreach($returned_clients as $client) {
+                $name = $client['name'];
+                $id = $client['id'];
+                $stylist_match_id = $client['stylist_match_id'];
+                $new_client = new Client($name, $stylist_match_id, $id);
+                array_push($clients, $new_client);
+            }
+            return $clients;
         }
 
-        function deleteAll()
+        static function deleteAll()
         {
-
+            $GLOBALS['DB']->exec("DELETE FROM clients;");
         }
 
         function find()
