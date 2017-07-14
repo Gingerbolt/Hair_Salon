@@ -15,39 +15,39 @@
             return $this->name;
         }
 
-        // function setName($new_name)
-        // {
-        //     $this->name = (string) $new_name;
-        // }
-        //
-        // function save()
-        // {
-        //
-        // }
-        //
-        // function getAll()
-        // {
-        //
-        // }
-        //
-        // function deleteAll()
-        // {
-        //
-        // }
-        //
-        // function find()
-        // {
-        //
-        // }
-        //
-        // function update()
-        // {
-        //
-        // }
-        //
-        // function delete()
-        // {
-        //
-        // }
+        function setName($new_name)
+        {
+            $this->name = $new_name;
+        }
+
+        function save()
+        {
+
+        }
+
+        function getAll()
+        {
+
+        }
+
+        function deleteAll()
+        {
+
+        }
+
+        function find()
+        {
+
+        }
+
+        function update()
+        {
+
+        }
+
+        function delete()
+        {
+
+        }
     }
 ?>
